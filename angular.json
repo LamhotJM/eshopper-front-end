@@ -100,6 +100,12 @@
       "root": "e2e/",
       "projectType": "application",
       "architect": {
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "your-application-name:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {

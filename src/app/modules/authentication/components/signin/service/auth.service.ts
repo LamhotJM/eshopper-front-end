@@ -12,13 +12,9 @@ export class AuthService {
   }
 
   attemptAuth(credentials: Object): Observable<Object> {
-    //const credentials = {username: username, password: password};
     console.log('attempAuth ::');
-    //return this.http.post('http://localhost:8080/token/generate-token', credentials);
-    return this.http.post(this.globals.BASE_API_URL + "oauth/auth/signin", credentials);
+    return this.http.post(this.globals.BASE_API_URL + 'users/login', credentials);
   }
-  getRole(): Observable<Object> {
-    return this.http.get("http://localhost:8080/api/customer/getRole");//this.globals.BASE_API_URL + "oauth/auth/getRole");
-  }
+
 
 }

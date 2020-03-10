@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {TokenStorage} from '../../../modules/authentication/components/signin/service/token.storage';
-import {Role} from "../model/role";
+import {Role} from '../model/role';
 import {AuthService} from '../../../modules/authentication/components/signin/service/auth.service';
 @Component({
   selector: 'app-header',
@@ -13,33 +13,22 @@ export class HeaderComponent implements OnInit {
   roles: Object;
   isAdmin: boolean;
 
-  constructor(private router: Router, private token: TokenStorage, private authService: AuthService,) { 
+  constructor(private router: Router, private token: TokenStorage, private authService: AuthService, ) {
 
     this.userLoggedIn = token.isUserLoggedIn();
   }
 
   ngOnInit() {
-    //console.log(this.userLoggedIn);
-    this.authService.getRole().subscribe(
-      (data) => {
-        this.roles = data;
-        for(var k in this.roles) {
-          if(this.roles[k].authority.includes("ADMIN")){
+    // tslint:disable-next-line:triple-equals
+          if (this.token.getRole() === ('ROLE_ADMIN')) {
             this.isAdmin = true;
-            break;
           }
-       }
-        //console.log(this.roles)
-      }, (error) => {
-        console.log(error)
-      }
-  );
+          console.log('Role of ' + this.token.getRole());
   }
 
-  logout() : void {
+  logout(): void {
     this.token.signOut();
     this.router.navigate(['/home']);
-    //window.location.href = window.location.href;
     window.location.reload();
 
   }

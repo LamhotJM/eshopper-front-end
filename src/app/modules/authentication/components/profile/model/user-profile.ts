@@ -1,5 +1,5 @@
-import { Address } from "./address";
-export class UserProfile { 
+import { Address } from './address';
+export class UserProfile {
 
     customerId: number ;
     firstname: string ;
@@ -9,7 +9,7 @@ export class UserProfile {
     shippingAddress: Address;
     billingAddress: Address;
 
-    constructor(customerId: number, firstname: string, lastname: string, 
+    constructor(customerId: number, firstname: string, lastname: string,
         email: string,  phone: string, shippingAddress: Address, billingAddress: Address) {
         this.customerId = customerId;
         this.firstname = firstname;
