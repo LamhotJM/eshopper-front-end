@@ -13,9 +13,9 @@ import { Credentials } from './model/credentials';
 export class SigninComponent implements OnInit {
 
   credentials: Credentials = new Credentials();
-  success: boolean = false;
-  failed: boolean = false;
-  message: string = "";
+  success = false;
+  failed = false;
+  message = '';
 
   constructor(private router: Router, private authService: AuthService, private token: TokenStorage) {
   }
@@ -26,15 +26,17 @@ export class SigninComponent implements OnInit {
   login(): void {
     this.authService.attemptAuth(this.credentials).subscribe(
       (data) => {
-        let token = JSON.parse(JSON.stringify(data)).accessToken;
-        this.token.saveToken(token);
+        // tslint:disable-next-line:prefer-const
+        let userRole = JSON.parse(JSON.stringify(data)).user.role.type;
+        const token = JSON.parse(JSON.stringify(data)).token;
+        this.token.saveRole(token);
+        this.token.saveToken(userRole);
         window.location.reload();
         this.router.navigate(['profile']);
-        //window.location.reload();
       }, (error) => {
         this.failed = true;
         error.error.errors.forEach(element => {
-          this.message += element.defaultMessage + "<br/>";
+          this.message += element.defaultMessage + '<br/>';
         });
       }
     );
