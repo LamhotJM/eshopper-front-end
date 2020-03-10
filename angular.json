@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular6-springboot-client": {
+    "eshopper-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular6-springboot-client",
+            "outputPath": "dist/eshopper-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,13 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -47,32 +44,25 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular6-springboot-client:build"
+            "browserTarget": "eshopper-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular6-springboot-client:build:production"
+              "browserTarget": "eshopper-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular6-springboot-client:build"
+            "browserTarget": "eshopper-ui:build"
           }
         },
         "test": {
@@ -106,20 +96,19 @@
         }
       }
     },
-    "angular6-springboot-client-e2e": {
+    "eshopper-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular6-springboot-client:serve"
+            "devServerTarget": "eshopper-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular6-springboot-client:serve:production"
+              "devServerTarget": "eshopper-ui:serve:production"
             }
           }
         },
@@ -135,8 +124,8 @@
       }
     }
   },
-  "defaultProject": "angular6-springboot-client",
+  "defaultProject": "eshopper-ui",
   "cli": {
-    "analytics": false
+    "analytics": "5203967f-7521-414b-b204-fbb1c95eaae9"
   }
 }
