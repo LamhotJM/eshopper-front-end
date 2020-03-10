@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'e-Shopper';
+  title = 'Welcome to HCMC Patients Management Systems (PMS)';
 }

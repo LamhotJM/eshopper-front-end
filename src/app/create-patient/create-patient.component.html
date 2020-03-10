@@ -1,0 +1,40 @@
+<h3>Create Patient</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name">Patient Number</label>
+      <input type="text" class="form-control" id="patientNumber" required [(ngModel)]="patient.patientNumber" name="patientNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="name">IsAnOutPatient </label>
+      <input type="text" class="form-control" id="isAnOutPatient" required [(ngModel)]="patient.isAnOutPatient" name="isAnOutPatient">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" class="form-control" id="fullNames" required [(ngModel)]="patient.fullNames" name="fullNames">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Contact Number</label>
+      <input type="text" class="form-control" id="contactPhoneNumber" required [(ngModel)]="patient.contactPhoneNumber" name="contactPhoneNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email Address </label>
+      <input type="text" class="form-control" id="emailAddress" required [(ngModel)]="patient.emailAddress" name="emailAddress">
+    </div>
+
+    <div class="form-group">
+      <label for="name">DateOfBirth</label>
+      <input type="text" class="form-control" id="dateOfBirth" required [(ngModel)]="patient.dateOfBirth" name="dateOfBirth">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div>
