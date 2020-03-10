@@ -1,0 +1,30 @@
+<div *ngIf="patient">
+  <div>
+    <label>Name: </label> {{patient.patientNumber}}
+  </div>
+
+  <div>
+    <label>Name: </label> {{patient.isAnOutPatient}}
+  </div>
+
+  <div>
+    <label>Full Name: </label> {{patient.fullNames}}
+  </div>
+  <div>
+    <label>Contact Phone Number: </label> {{patient.contactPhoneNumber}}
+  </div>
+  <div>
+    <label>DOB: </label> {{patient.dateOfBirth}}
+  </div>
+  <div>
+    <label>Active: </label> {{patient.active}}
+  </div>
+
+  <span class="button is-small btn-primary" *ngIf='patient.active' (click)='updateActive(false)'>Inactive</span>
+
+  <span class="button is-small btn-primary" *ngIf='!patient.active' (click)='updateActive(true)'>Active</span>
+
+  <span class="button is-small btn-danger" (click)='deletePatient()'>Delete</span>
+
+  <hr/>
+</div>
