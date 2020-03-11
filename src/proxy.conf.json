@@ -1,7 +1,0 @@
-{
-  "/api/*": {
-    "target": "https://eshopper-cs425-team-6.herokuapp.com",
-    "secure": false,
-    "logLevel": "debug"
-  }
-}
