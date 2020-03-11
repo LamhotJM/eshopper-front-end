@@ -1,7 +1,7 @@
 import {AfterContentChecked, Component, OnInit} from '@angular/core';
-import {ProductInfo} from "../../models/productInfo";
-import {ProductService} from "../../services/product.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ProductInfo} from '../../models/productInfo';
+import {ProductService} from '../../services/product.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-product-edit',
@@ -31,7 +31,7 @@ export class ProductEditComponent implements OnInit, AfterContentChecked {
 
     update() {
         this.productService.update(this.product).subscribe(prod => {
-                if (!prod) throw new Error();
+                if (!prod) { throw new Error(); }
                 this.router.navigate(['/seller']);
             },
             err => {
@@ -49,7 +49,7 @@ export class ProductEditComponent implements OnInit, AfterContentChecked {
 
     add() {
         this.productService.create(this.product).subscribe(prod => {
-                if (!prod) throw new Error;
+                if (!prod) { throw new Error; }
                 this.router.navigate(['/']);
             },
             e => {

@@ -5,13 +5,13 @@ import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {DetailComponent} from './pages/product-detail/detail.component';
 import {CartComponent} from './pages/cart/cart.component';
-import {AuthGuard} from "./_guards/auth.guard";
-import {OrderComponent} from "./pages/order/order.component";
-import {OrderDetailComponent} from "./pages/order-detail/order-detail.component";
-import {ProductListComponent} from "./pages/product-list/product.list.component";
-import {UserDetailComponent} from "./pages/user-edit/user-detail.component";
-import {ProductEditComponent} from "./pages/product-edit/product-edit.component";
-import {Role} from "./enum/Role";
+import {AuthGuard} from './_guards/auth.guard';
+import {OrderComponent} from './pages/order/order.component';
+import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
+import {ProductListComponent} from './pages/product-list/product.list.component';
+import {UserDetailComponent} from './pages/user-edit/user-detail.component';
+import {ProductEditComponent} from './pages/product-edit/product-edit.component';
+import {Role} from './enum/Role';
 
 const routes: Routes = [
     {path: '', redirectTo: '/product', pathMatch: 'full'},
@@ -31,7 +31,7 @@ const routes: Routes = [
         path: 'seller/product',
         component: ProductListComponent,
         canActivate: [AuthGuard],
-        data: {roles: [Role.Manager, Role.Employee]}
+        data: {roles: [Role.Admin, Role.Merchant]}
     },
     {
         path: 'profile',
@@ -42,13 +42,13 @@ const routes: Routes = [
         path: 'seller/product/:id/edit',
         component: ProductEditComponent,
         canActivate: [AuthGuard],
-        data: {roles: [Role.Manager, Role.Employee]}
+        data: {roles: [Role.Admin, Role.Merchant]}
     },
     {
         path: 'seller/product/:id/new',
         component: ProductEditComponent,
         canActivate: [AuthGuard],
-        data: {roles: [Role.Employee]}
+        data: {roles: [Role.Merchant]}
     },
 
 ];
@@ -56,7 +56,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [],
     imports: [
-        RouterModule.forRoot(routes)//{onSameUrlNavigation: 'reload'}
+        RouterModule.forRoot(routes)// {onSameUrlNavigation: 'reload'}
     ],
     exports: [RouterModule]
 })

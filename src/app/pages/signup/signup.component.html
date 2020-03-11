@@ -3,7 +3,7 @@
   <form #form="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label><b>Email address</b></label>
-      <input [(ngModel)]="user.email" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" email required autofocus  #email="ngModel">
+      <input [(ngModel)]="user.username" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" email required autofocus #email="ngModel">
       <div  *ngIf="email.invalid && (email.dirty ||email.touched)" >
           <div *ngIf="email.errors.required" >
               Email is required.
@@ -14,13 +14,13 @@
       </div>
     </div>
     <div class="form-group">
-      <label><b>Name</b></label>
-      <input [(ngModel)]="user.name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required #name="ngModel">
-        <div  *ngIf="name.invalid && (name.dirty ||name.touched)">
-            <div *ngIf="name.errors.required">
-                Name is required.
+      <label><b>First Name</b></label>
+      <input [(ngModel)]="user.firstName" type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="Your first name" required #firstName="ngModel">
+        <div  *ngIf="firstName.invalid && (firstName.dirty ||firstName.touched)">
+            <div *ngIf="firstName.errors.required">
+                First Name is required.
             </div>
-            <div *ngIf="name.errors.minlength">
+            <div *ngIf="firstName.errors.minlength">
                 Name must be at least 3 characters long.
             </div>
         </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
       <label><b>Phone</b></label>
-      <input [(ngModel)]="user.phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" >
+      <input [(ngModel)]="user.lastName" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" >
         <div  *ngIf="phone.invalid && (phone.dirty ||phone.touched)">
             <div *ngIf="phone.errors.required">
                 Phone is required.

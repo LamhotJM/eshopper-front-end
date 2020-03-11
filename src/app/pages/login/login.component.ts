@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.userService.login(this.model).subscribe(
             user => {
                 if (user) {
-                    if (user.role != Role.Customer) {
+                    if (user.role != Role.Buyer) {
 
                         this.returnUrl = '/seller';
                     }

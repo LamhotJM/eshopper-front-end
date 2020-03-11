@@ -1,23 +1,23 @@
-import {Role} from "../enum/Role";
+import {Role} from '../enum/Role';
 
 export class User {
 
-    email: string;
+    username: string;
 
     password: string;
 
-    name: string;
+    firstName: string;
 
-    phone: string;
+    lastName: string;
 
     address: string;
 
-    active: boolean;
+    enabled: boolean;
 
     role: string;
 
-    constructor(){
-        this.active = true;
-        this.role = Role.Customer;
+    constructor() {
+        this.enabled = true;
+        this.role = Role.Buyer;
     }
 }

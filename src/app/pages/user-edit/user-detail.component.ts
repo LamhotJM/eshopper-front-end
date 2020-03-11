@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../services/user.service";
-import {User} from "../../models/User";
-import {Router} from "@angular/router";
-import {Observable, Subject} from "rxjs";
-import {Role} from "../../enum/Role";
+import {UserService} from '../../services/user.service';
+import {User} from '../../models/User';
+import {Router} from '@angular/router';
+import {Observable, Subject} from 'rxjs';
+import {Role} from '../../enum/Role';
 
 @Component({
     selector: 'app-user-detail',
@@ -19,7 +19,7 @@ export class UserDetailComponent implements OnInit {
                 private router: Router) {
     }
 
-    user= new User();
+    user = new User();
 
 
     ngOnInit() {
@@ -35,13 +35,14 @@ export class UserDetailComponent implements OnInit {
 
     onSubmit() {
         this.userService.update(this.user).subscribe(u => {
-            this.userService.nameTerms.next(u.name);
+            this.userService.nameTerms.next(u.firstName);
             let url = '/';
-            if (this.user.role != Role.Customer) {
+            // tslint:disable-next-line:triple-equals
+            if (this.user.role != Role.Buyer) {
                 url = '/seller';
             }
             this.router.navigateByUrl(url);
-        }, _ => {})
+        }, _ => {});
     }
 
 }

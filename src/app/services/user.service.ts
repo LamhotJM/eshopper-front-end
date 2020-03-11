@@ -5,7 +5,7 @@ import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {JwtResponse} from '../response/JwtResponse';
 import {CookieService} from 'ngx-cookie-service';
-import {User} from "../models/User";
+import {User} from '../models/User';
 
 @Injectable({
     providedIn: 'root'
@@ -60,11 +60,11 @@ export class UserService {
     }
 
     update(user: User): Observable<User> {
-        const url = `${apiUrl}/profile`;
+        const url = `${apiUrl}/users`;
         return this.http.put<User>(url, user);    }
 
     get(email: string): Observable<User> {
-        const url = `${apiUrl}/profile/${email}`;
+        const url = `${apiUrl}/users/${email}`;
         return this.http.get<User>(url);
     }
 
