@@ -3,12 +3,12 @@
   <form #form="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label><b>Email address</b></label>
-        <input readonly [value]=user?.email type="email" class="form-control form-control-lg " disabled id="email"
+        <input readonly [value]=user?.username type="email" class="form-control form-control-lg " disabled id="email"
                name="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label><b>Name</b></label>
-      <input [(ngModel)]="user.name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required #name="ngModel" autofocus>
+      <input [(ngModel)]="user.firstName" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required #name="ngModel" autofocus>
       <div  *ngIf="name.invalid && (name.dirty || name.touched)">
         <div *ngIf="name.errors.required">
           Name is required.
@@ -31,11 +31,11 @@
       </div>
     </div>
     <div class="form-group">
-      <label><b>Phone</b></label>
-      <input [(ngModel)]="user.phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" >
-      <div  *ngIf="phone.invalid && (phone.dirty ||phone.touched)">
-        <div *ngIf="phone.errors.required">
-          Phone is required.
+      <label><b>Last Name</b></label>
+      <input [(ngModel)]="user.lastName" type="text" class="form-control form-control-lg" id="phone" name="lastName" placeholder="LastName" required #lastName="ngModel" >
+      <div  *ngIf="lastName.invalid && (lastName.dirty ||lastName.touched)">
+        <div *ngIf="lastName.errors.required">
+          Last Name is required.
         </div>
       </div>
     </div>
