@@ -8,13 +8,14 @@ import {PaginationComponent} from './parts/pagination/pagination.component';
 import {AppRoutingModule} from './app-routing.module';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import {SignMerchantComponent} from './pages/signup-merchant/signup-merchant.component';
 import {DetailComponent} from './pages/product-detail/detail.component';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CartComponent} from './pages/cart/cart.component';
-import {CookieService} from "ngx-cookie-service";
-import {ErrorInterceptor} from "./_interceptors/error-interceptor.service";
-import {JwtInterceptor} from "./_interceptors/jwt-interceptor.service";
+import {CookieService} from 'ngx-cookie-service';
+import {ErrorInterceptor} from './_interceptors/error-interceptor.service';
+import {JwtInterceptor} from './_interceptors/jwt-interceptor.service';
 import {OrderComponent} from './pages/order/order.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
 import {ProductListComponent} from './pages/product-list/product.list.component';
@@ -29,6 +30,7 @@ import {ProductEditComponent} from './pages/product-edit/product-edit.component'
         PaginationComponent,
         LoginComponent,
         SignupComponent,
+        SignMerchantComponent,
         DetailComponent,
         CartComponent,
         OrderComponent,
