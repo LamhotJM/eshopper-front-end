@@ -1,77 +1,50 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductService} from '../../services/product.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CartService} from '../../services/cart.service';
-import {CookieService} from 'ngx-cookie-service';
-import {ProductInOrder} from '../../models/ProductInOrder';
-import {ProductInfo} from '../../models/productInfo';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LocaleStorageService } from '../../services/locale-storage.service';
+import { ProductService } from '../../services/product.service';
+declare let swal: any;
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
 export class DetailComponent implements OnInit {
-  title: string;
-  count: number;
-  productInfo: ProductInfo;
 
-  constructor(
-      private productService: ProductService,
-      private cartService: CartService,
-      private cookieService: CookieService,
-      private route: ActivatedRoute,
-      private router: Router
-  ) {
-  }
+  id: number;
+  quantity: string;
+  product: object;
+  cart: object;
+  dataLoaded: Promise<boolean>;
+
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private service: ProductService,
+    private localeStorage: LocaleStorageService
+  ) { }
 
   ngOnInit() {
-    this.getProduct();
-    this.title = 'Product Detail';
-    this.count = 1;
-  }
-
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   // Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //   // Add '${implements OnChanges}' to the class.
-  //   console.log(changes);
-  //   if (this.item.quantity in changes) {
-
-  //   }
-  // }
-
-  getProduct(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.productService.getDetail(id).subscribe(
-        prod => {
-          this.productInfo = prod;
-        },
-        _ => console.log('Get Cart Failed')
+    this.quantity = '1';
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+    this.service.getProduct(this.id).subscribe(
+      data => {
+        this.product = data;
+        this.dataLoaded = Promise.resolve(true);
+      }
     );
   }
 
-  addToCart() {
-    this.cartService
-        .addItem(new ProductInOrder(this.productInfo, this.count))
-        .subscribe(
-            res => {
-              if (!res) {
-                console.log('Add Cart failed' + res);
-                throw new Error();
-              }
-              this.router.navigateByUrl('/cart');
-            },
-            _ => console.log('Add Cart Failed')
-        );
+  addProductToCart(product_id) {
+    this.service.addProductToCart(product_id, this.quantity).subscribe(
+      data =>  {
+        this.cart = data;
+        this.localeStorage.saveCartId(data['cartId']);
+        swal('Done!', 'Add to card success', 'success');
+        this.router.navigateByUrl('products');
+      }
+    );
   }
 
-  validateCount() {
-    console.log('Validate');
-    const max = this.productInfo.qtyAvail;
-    if (this.count > max) {
-      this.count = max;
-    } else if (this.count < 1) {
-      this.count = 1;
-    }
-  }
 }

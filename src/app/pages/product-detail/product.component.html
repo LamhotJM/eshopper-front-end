@@ -1,0 +1,42 @@
+<div class="product-container">
+    <div class="product-img-container">
+        <img src="http://placehold.it/700x400" alt="product">
+    </div>
+    
+    <div class="product-desc-container" *ngIf="dataLoaded | async">
+        <h3>Product Details</h3>
+        <div>
+            <b> Product ID:</b> <span>{{product.id}}</span>
+        </div>
+        <div>
+            <b>Product Name</b>: <span>{{product.title}}</span>
+        </div>
+        <div>
+            <b>Product Price</b>: <span>$ {{product.price}}</span>
+        </div>
+        <div class="add-to-card-container">
+            <div class="select-container">
+                <b>Quantity</b>
+                <select class="custom-select" [(ngModel)]="quantity">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
+            </div>
+        </div>
+        <div>
+            <b>Description: </b><span> {{product.description}}</span>
+        </div>
+
+    </div>
+</div>
