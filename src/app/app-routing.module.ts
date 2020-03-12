@@ -9,16 +9,19 @@ import {CartComponent} from './pages/cart/cart.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {OrderComponent} from './pages/order/order.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
-import {ProductListComponent} from './pages/product-list/product.list.component';
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
+
 import {Role} from './enum/Role';
+import {ProductsListComponent} from './pages/product-list/products-list.component';
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/product', pathMatch: 'full'},
     {path: 'product/:id', component: DetailComponent},
     {path: 'category/:id', component: CardComponent},
     {path: 'product', component: CardComponent},
+    {path: 'products', component: ProductsListComponent},
     {path: 'category', component: CardComponent},
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LoginComponent},
@@ -31,7 +34,7 @@ const routes: Routes = [
     {path: 'seller', redirectTo: 'seller/product', pathMatch: 'full'},
     {
         path: 'seller/product',
-        component: ProductListComponent,
+        component: ProductsListComponent,
         canActivate: [AuthGuard],
         data: {roles: [Role.Admin, Role.Merchant]}
     },

@@ -4,10 +4,10 @@ import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products-list',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  templateUrl: './products-list.component.html',
+  styleUrls: ['./products-list.component.css']
 })
-export class CardComponent implements OnInit {
+export class ProductsListComponent implements OnInit {
 
   category_id: number;
   products: Object;
@@ -20,16 +20,16 @@ export class CardComponent implements OnInit {
     });
 
     if (this.category_id) {
-      this.service.getProductByCategory(this.category_id).subscribe(
+        this.service.getProductByCategory(this.category_id).subscribe(
           data => this.products = data['products']
-      );
+        );
     } else {
-      this.service.getProducts().subscribe(
+        this.service.getProducts().subscribe(
           data =>   {
             this.products = data;
             console.log(this.products);
           }
-      );
+        );
     }
   }
 

@@ -4,7 +4,7 @@
         <!--Id-->
         <div class="form-group">
             <label for="productId">Code</label>
-            <input [readOnly]="isEdit" [disabled]="isEdit" [(ngModel)]="product.productId" type="text"
+            <input [readOnly]="isEdit" [disabled]="isEdit" [(ngModel)]="product.id" type="text"
                    class="form-control form-control-lg" #productIdInput
                    id="productId" name="productId" required #productId="ngModel">
             <div *ngIf="productIdInput.invalid && (productIdInput.dirty ||productIdInput.touched)">
@@ -23,7 +23,7 @@
         <!--Name-->
         <div class="form-group">
             <label>Name</label>
-            <input [(ngModel)]="product.productName" type="text" class="form-control form-control-lg" id="productName"
+            <input [(ngModel)]="product.title" type="text" class="form-control form-control-lg" id="productName"
                    #productName="ngModel"
                    name="productName" placeholder="Name" required>
         </div>
@@ -37,7 +37,7 @@
         <div class="form-group">
             <label for="categoryType">Category</label>
             <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
-                    [(ngModel)]="product.categoryType"
+                    [(ngModel)]="product.categegory"
                     required>
                 <option [ngValue]=0>Books</option>
                 <option [ngValue]=1>Food</option>
@@ -51,7 +51,7 @@
             <label>Description</label>
             <textarea class="form-control form-control-lg text-left"
                       id="productDescription" name="productDescription"
-                      placeholder="Description" [(ngModel)]="product.productDescription"></textarea>
+                      placeholder="Description" [(ngModel)]="product.description"></textarea>
         </div>
         <!--Price-->
         <div class="form-group">
@@ -61,7 +61,7 @@
                    id="productPrice"
                    name="productPrice"
                    #productPrice="ngModel"
-                   [ngModel]="product.productPrice" (ngModelChange)="product.productPrice=$event"
+                   [ngModel]="product.price" (ngModelChange)="product.price=$event"
                    required>
             <div *ngIf="productPrice.invalid && (productPrice.dirty ||productPrice.touched)">
                 <div *ngIf="productPrice.errors.required">
@@ -77,7 +77,7 @@
                    id="productStock"
                    name="productStock"
                    min="0" #productStock="ngModel"
-                   [(ngModel)]="product.productStock"
+                   [(ngModel)]="product.qtyAvail"
                    required>
             <div *ngIf="productStock.invalid && (productStock.dirty ||productStock.touched)">
                 <div *ngIf="productStock.errors.required">

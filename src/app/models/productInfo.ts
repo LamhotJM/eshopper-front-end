@@ -1,36 +1,36 @@
-import {ProductInOrder} from "./ProductInOrder";
+import {ProductInOrder} from './ProductInOrder';
 
 export class ProductInfo {
-    productId: string;
-    productName: string;
-    productPrice: number;
-    productStock: number;
-    productDescription: string;
+    id: string;
+    title: string;
+    price: number;
+    qtyAvail: number;
+    description: string;
     productIcon: string;
     productStatus: number; // 0: onsale 1: offsale
-    categoryType: number;
+    category: number;
     createTime: string;
     updateTime: string;
 
 
     constructor(productInOrder?: ProductInOrder) {
         if (productInOrder) {
-            this.productId = productInOrder.productId;
-            this.productName = productInOrder.productName;
-            this.productPrice = productInOrder.productPrice;
-            this.productStock = productInOrder.productStock;
-            this.productDescription = productInOrder.productDescription;
+            this.id = productInOrder.id;
+            this.title = productInOrder.title;
+            this.price = productInOrder.price;
+            this.qtyAvail = productInOrder.qtyAvail;
+            this.description = productInOrder.description;
             this.productIcon = productInOrder.productIcon;
-            this.categoryType = productInOrder.categoryType;
+            this.category = productInOrder.category;
             this.productStatus = 0;
         } else {
-            this.productId = '';
-            this.productName = '';
-            this.productPrice = 20;
-            this.productStock = 100;
-            this.productDescription = '';
+            this.id = '';
+            this.title = '';
+            this.price = 20;
+            this.qtyAvail = 100;
+            this.description = '';
             this.productIcon = '';
-            this.categoryType = 0;
+            this.category = 0;
             this.productStatus = 0;
         }
     }

@@ -18,9 +18,10 @@ import {ErrorInterceptor} from './_interceptors/error-interceptor.service';
 import {JwtInterceptor} from './_interceptors/jwt-interceptor.service';
 import {OrderComponent} from './pages/order/order.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
-import {ProductListComponent} from './pages/product-list/product.list.component';
+import {ProductsListComponent} from './pages/product-list/products-list.component';
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
+
 
 @NgModule({
     declarations: [
@@ -35,7 +36,7 @@ import {ProductEditComponent} from './pages/product-edit/product-edit.component'
         CartComponent,
         OrderComponent,
         OrderDetailComponent,
-        ProductListComponent,
+        ProductsListComponent,
         UserDetailComponent,
         ProductEditComponent,
 

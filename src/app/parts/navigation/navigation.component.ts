@@ -31,6 +31,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
         this.name$ = this.userService.name$.subscribe(aName => this.name = aName);
         this.currentUserSubscription = this.userService.currentUser.subscribe(user => {
             this.currentUser = user;
+            // tslint:disable-next-line:triple-equals
             if (!user || user.role == Role.Buyer) {
                 this.root = '/';
             } else {
