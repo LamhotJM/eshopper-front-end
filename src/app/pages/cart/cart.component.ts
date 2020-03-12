@@ -93,7 +93,7 @@ export class CartComponent implements OnInit, OnDestroy, AfterContentChecked {
     remove(productInOrder: ProductInOrder) {
         this.cartService.remove(productInOrder).subscribe(
             success => {
-               this.productInOrders = this.productInOrders.filter(e => e.productId !== productInOrder.productId);
+               this.productInOrders = this.productInOrders.filter(e => e.productId !== productInOrder.id);
                 console.log('Cart: ' + this.productInOrders);
             },
             _ => console.log('Remove Cart Failed'));

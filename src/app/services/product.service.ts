@@ -10,7 +10,7 @@ import {apiUrl} from '../../environments/environment';
 })
 export class ProductService {
 
-    private productUrl = `${apiUrl}/product`;
+    private productUrl = `${apiUrl}/products/list`;
     private categoryUrl = `${apiUrl}/category`;
 
     constructor(private http: HttpClient) {
@@ -21,7 +21,7 @@ export class ProductService {
         return this.http.get(url)
             .pipe(
                 // tap(_ => console.log(_)),
-            )
+            );
     }
 
     getCategoryInPage(categoryType: number, page: number, size: number): Observable<any> {
@@ -35,14 +35,14 @@ export class ProductService {
         const url = `${this.productUrl}/${id}`;
         return this.http.get<ProductInfo>(url).pipe(
             catchError(_ => {
-                console.log("Get Detail Failed");
+                console.log('Get Detail Failed');
                 return of(new ProductInfo());
             })
         );
     }
 
     update(productInfo: ProductInfo): Observable<ProductInfo> {
-        const url = `${apiUrl}/seller/product/${productInfo.productId}/edit`;
+        const url = `${apiUrl}/seller/product/${productInfo.id}/edit`;
         return this.http.put<ProductInfo>(url, productInfo);
     }
 
@@ -52,8 +52,8 @@ export class ProductService {
     }
 
 
-    delelte(productInfo: ProductInfo): Observable<any> {
-        const url = `${apiUrl}/seller/product/${productInfo.productId}/delete`;
+    delete(productInfo: ProductInfo): Observable<any> {
+        const url = `${apiUrl}/seller/product/${productInfo.id}/delete`;
         return this.http.delete(url);
     }
 
@@ -72,5 +72,12 @@ export class ProductService {
             // Let the app keep running by returning an empty result.
             return of(result as T);
         };
+    }
+    getProductByCategory(id: number) {
+        return this.http.get(`${apiUrl}/product/category/get/${id}`);
+    }
+
+    getProducts() {
+        return this.http.get(`${apiUrl}/products/list`);
     }
 }

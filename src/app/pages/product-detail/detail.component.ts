@@ -67,7 +67,7 @@ export class DetailComponent implements OnInit {
 
   validateCount() {
     console.log('Validate');
-    const max = this.productInfo.productStock;
+    const max = this.productInfo.qtyAvail;
     if (this.count > max) {
       this.count = max;
     } else if (this.count < 1) {

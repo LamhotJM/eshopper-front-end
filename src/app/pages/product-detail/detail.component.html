@@ -4,16 +4,16 @@
     <div class="card mb-4 ">
       <img height="60%" class="card-img-top" src="{{productInfo?.productIcon}}">
       <div class="card-body">
-        <h4 class="card-title ">{{productInfo?.productName}}</h4>
+        <h4 class="card-title ">{{productInfo?.title}}</h4>
         <form name="form" #form='ngForm' (ngSubmit)="productInfo?.productStatus == 0 && addToCart()">
           <div class="text-left">
-            <input hidden name="productId" [value]=productInfo?.productId>
-            <p class="card-test"><strong>Description: </strong>{{productInfo?.productDescription}}</p>
+            <input hidden name="productId" [value]=productInfo?.id>
+            <p class="card-test"><strong>Description: </strong>{{productInfo?.description}}</p>
             <p class="card-text">
               <strong>Price: </strong>
-              <label id="price">{{productInfo?.productPrice | currency}}</label>
+              <label id="price">{{productInfo?.price | currency}}</label>
             </p>
-            <p class="card-text"><strong>Stock: </strong>{{productInfo?.productStock}}</p>
+            <p class="card-text"><strong>Stock: </strong>{{productInfo?.qtyAvail}}</p>
 
             <label class="card-text">
               <strong>Quantity: </strong>
@@ -23,13 +23,13 @@
                      name="count"
                      required
                      min="1"
-                     [max]=productInfo?.productStock
+                     [max]=productInfo?.qtyAvail
               >
             </label>
 
 
             <p class="card-text"><strong>Subtotal: </strong>
-              <label id="subtotal">{{count * productInfo?.productPrice | currency}}</label>
+              <label id="subtotal">{{count * productInfo?.price | currency}}</label>
             </p>
           </div>
           <button type="submit" [disabled]="!form.form.valid" *ngIf="productInfo?.productStatus == 0; else offBlock"

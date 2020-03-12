@@ -3,6 +3,16 @@
         <div class="navbar-nav" *ngIf="!currentUser || currentUser.role == Role.Buyer">
 
             <a class="nav-item nav-link "
+               routerLink="/">
+                Home
+            </a>
+
+            <a class="nav-item nav-link "
+               routerLink="/products">
+                Products
+            </a>
+
+            <a class="nav-item nav-link "
                routerLink="/category/0">
                 Books
             </a>
