@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {CardComponent} from './pages/card/card.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import {SignMerchantComponent} from './pages/signup-merchant/signup-merchant.component';
 import {DetailComponent} from './pages/product-detail/detail.component';
 import {CartComponent} from './pages/cart/cart.component';
 import {AuthGuard} from './_guards/auth.guard';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LoginComponent},
     {path: 'register', component: SignupComponent},
+    {path: 'merchant_register', component: SignMerchantComponent},
     {path: 'cart', component: CartComponent},
     {path: 'success', component: SignupComponent},
     {path: 'order/:id', component: OrderDetailComponent, canActivate: [AuthGuard]},

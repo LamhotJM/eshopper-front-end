@@ -2,6 +2,7 @@ import {Role} from '../enum/Role';
 
 export class User {
 
+    id: bigint;
     username: string;
 
     password: string;
@@ -15,6 +16,8 @@ export class User {
     enabled: boolean;
 
     role: string;
+    officePhoneNumber1: string;
+    officePhoneNumber2: string;
 
     constructor() {
         this.enabled = true;

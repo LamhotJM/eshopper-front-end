@@ -55,12 +55,18 @@ export class UserService {
     }
 
     signUp(user: User): Observable<User> {
-        const url = `${apiUrl}/register`;
+        const url = `${apiUrl}/users/register`;
         return this.http.post<User>(url, user);
     }
 
+    signUpMerchant(user: User): Observable<User> {
+        const url = `${apiUrl}/users/merchants/register`;
+        return this.http.post<User>(url, user);
+    }
+
+
     update(user: User): Observable<User> {
-        const url = `${apiUrl}/users`;
+        const url = `${apiUrl}/users/update`;
         return this.http.put<User>(url, user);    }
 
     get(email: string): Observable<User> {
