@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {ProductInfo} from '../models/productInfo';
+import { LocaleStorageService } from '../services/locale-storage.service';
+
 import {apiUrl} from '../../environments/environment';
 
 @Injectable({
@@ -13,7 +15,7 @@ export class ProductService {
     private productUrl = `${apiUrl}/products/list`;
     private categoryUrl = `${apiUrl}/category`;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private localStorage: LocaleStorageService) {
     }
 
     getAllInPage(page: number, size: number): Observable<any> {
@@ -79,5 +81,24 @@ export class ProductService {
 
     getProducts() {
         return this.http.get(`${apiUrl}/products/list`);
+    }
+
+    getProduct(id: number) {
+        return this.http.get(`${apiUrl}/products/${id}`);
+    }
+
+    addProductToCart(product_id: string, quantity: string) {
+        const cart_id = this.localStorage.getCartId();
+        if ( cart_id != null) {
+            return this.http.post(
+                `${apiUrl}/shopping/addToCart`,
+                {productId: product_id, quantity: quantity, cartId: cart_id}
+            );
+        } else {
+            return this.http.post(
+                `${apiUrl}/shopping/addToCart`,
+                {productId: product_id, quantity: quantity}
+            );
+        }
     }
 }
