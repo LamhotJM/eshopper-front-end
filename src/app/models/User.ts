@@ -16,6 +16,7 @@ export class User {
     enabled: boolean;
 
     role: string;
+    shippingAddress: string;
     officePhoneNumber1: string;
     officePhoneNumber2: string;
 

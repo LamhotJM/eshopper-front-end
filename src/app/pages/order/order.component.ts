@@ -1,13 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {OrderService} from "../../services/order.service";
-import {Order} from "../../models/Order";
-import {OrderStatus} from "../../enum/OrderStatus";
-import {UserService} from "../../services/user.service";
-import {JwtResponse} from "../../response/JwtResponse";
-import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
-import {Role} from "../../enum/Role";
+import {HttpClient} from '@angular/common/http';
+import {OrderService} from '../../services/order.service';
+import {Order} from '../../models/Order';
+import {OrderStatus} from '../../enum/OrderStatus';
+import {UserService} from '../../services/user.service';
+import {JwtResponse} from '../../response/JwtResponse';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {Role} from '../../enum/Role';
 
 @Component({
     selector: 'app-order',
@@ -38,20 +38,20 @@ export class OrderComponent implements OnInit, OnDestroy {
     }
 
     update() {
-        let nextPage = 1;
+        let nextPage = 0;
         let size = 10;
         if (this.route.snapshot.queryParamMap.get('page')) {
             nextPage = +this.route.snapshot.queryParamMap.get('page');
             size = +this.route.snapshot.queryParamMap.get('size');
         }
         this.orderService.getPage(nextPage, size).subscribe(page => this.page = page, _ => {
-            console.log("Get Orde Failed")
+            console.log('Get Orde Failed');
         });
     }
 
 
     cancel(order: Order) {
-        this.orderService.cancel(order.orderId).subscribe(res => {
+        this.orderService.cancel(order.orderID).subscribe(res => {
             if (res) {
                 order.orderStatus = res.orderStatus;
             }
@@ -59,11 +59,11 @@ export class OrderComponent implements OnInit, OnDestroy {
     }
 
     finish(order: Order) {
-        this.orderService.finish(order.orderId).subscribe(res => {
+        this.orderService.finish(order.orderID).subscribe(res => {
             if (res) {
                 order.orderStatus = res.orderStatus;
             }
-        })
+        });
     }
 
     ngOnDestroy(): void {
