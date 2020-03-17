@@ -12,7 +12,7 @@ import {apiUrl} from '../../environments/environment';
 })
 export class ProductService {
 
-    private productUrl = `${apiUrl}/products/list`;
+    private productUrl = `${apiUrl}/products/list/`;
     private categoryUrl = `${apiUrl}/category`;
 
     constructor(private http: HttpClient, private localStorage: LocaleStorageService) {
@@ -80,7 +80,7 @@ export class ProductService {
     }
 
     getProducts() {
-        return this.http.get(`${apiUrl}/products/list`);
+        return this.http.get(`${apiUrl}/products/list/`);
     }
 
     getProduct(id: number) {

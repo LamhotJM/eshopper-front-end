@@ -11,6 +11,7 @@ import {apiUrl} from '../../environments/environment';
 export class OrderService {
 
     private orderUrl = `${apiUrl}/orders/list`;
+    private orderDetailUrl = `${apiUrl}/orders`;
 
     constructor(private http: HttpClient) {
     }
@@ -20,19 +21,19 @@ export class OrderService {
     }
 
     show(id): Observable<Order> {
-        return this.http.get<Order>(`${this.orderUrl}/${id}`).pipe(
+        return this.http.get<Order>(`${this.orderDetailUrl}/${id}`).pipe(
             catchError(_ => of(null))
         );
     }
 
     cancel(id): Observable<Order> {
-        return this.http.patch<Order>(`${this.orderUrl}/cancel/${id}`, null).pipe(
+        return this.http.patch<Order>(`${this.orderDetailUrl}/cancel/${id}`, null).pipe(
             catchError(_ => of(null))
         );
     }
 
     finish(id): Observable<Order> {
-        return this.http.patch<Order>(`${this.orderUrl}/finish/${id}`, null).pipe(
+        return this.http.patch<Order>(`${this.orderDetailUrl}/finish/${id}`, null).pipe(
             catchError(_ => of(null))
         );
     }
