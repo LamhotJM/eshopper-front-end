@@ -1,56 +1,46 @@
-<h1 align="center" class="display-4 mb-5">Orders</h1>
+<h2 class="display-4 mb-5">List Not Approved Merchants</h2>
 
 <table class="table table-striped text-center">
     <thead>
     <tr>
-        <th scope="col">Order #</th>
-        <th scope="col">Customer Name</th>
-        <th scope="col">Customer Email</th>
+        <th scope="col">ID #</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
         <th scope="col">Shipping Address</th>
-        <th scope="col">Qty</th>
-        <th scope="col">Order Data</th>
-        <th scope="col">Paid</th>
-        <th scope="col">Status</th>
-        <th scope="col">Tax</th>
-        <th scope="col">Discount</th>
-        <th scope="col">Total Price </th>
+        <th scope="col">Business Name</th>
+        <th scope="col">PhoneNumber1</th>
+        <th scope="col">PhoneNumber2</th>
+        <th scope="col">Identity Proof</th>
+        <th scope="col">approved</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr *ngFor="let order of page?.content">
+    <tr *ngFor="let merchant of page?.content">
         <th class="align-middle" scope="row">
-            {{order.orderID}}
+            {{merchant.id}}
         </th>
-        <td class="align-middle">{{order.buyer.firstName}}</td>
-        <td class="align-middle">{{order.buyer.username}}</td>
+        <td class="align-middle">{{merchant.firstName}}</td>
+        <td class="align-middle">{{merchant.username}}</td>
         <td class="align-middle">
-
-            {{order.buyer.shippingAddress.streetAddress}},
-            {{order.buyer.shippingAddress.city}},
-            {{order.buyer.shippingAddress.state}},
-            {{order.buyer.shippingAddress.zipCode}}
+            {{merchant.officeAddress?.streetAddress || "--"}},
+            {{merchant.officeAddres?.city || "--"}},
+            {{merchant.officeAddress?.state || "--"}},
+            {{merchant.officeAddress?.zipCode || "--"}}
 
         </td>
-        <td class="align-middle">{{order.orderAmount | currency}}</td>
-        <td class="align-middle">{{order.date | date}}</td>
-        <td class="align-middle">{{order.paid}}</td>
-        <td class="align-middle">{{OrderStatus[order.paid]}}</td>
-        <td class="align-middle">{{order.tax | currency}}
-        <td class="align-middle">{{order.totalDiscount | currency}}</td>
-        <td class="align-middle">{{order.totalPrice | currency}}</td>
+        <td class="align-middle">{{merchant?.bizName}}</td>
+        <td class="align-middle">{{merchant?.officePhoneNumber1}}</td>
+        <td class="align-middle">{{merchant?.officePhoneNumber2}}</td>
+        <td class="align-middle">{{merchant?.identityProof}}</td>
+        <td class="align-middle">{{merchant?.approved}}</td>
         <td class="align-middle">
-            <a *ngIf="!(currentUser.role == Role.Buyer && currentUser.name == order.buyerEmail)"
+            <a *ngIf="(currentUser.role == Role.Admin)"
                style="display:
-            block" href="" routerLink="/order/{{order.orderID}}">
-                Show</a>
-            <a *ngIf="order.orderStatus == 0" style="display: block" (click)="cancel(order)" routerLink="./">Cancel</a>
-            <a *ngIf="currentUser.role != Role.Buyer && order.orderStatus == 0"
-               style="display: block"
-               (click)="finish(order)"
-               routerLink="./">
-                Finish</a>
+            block" href="" routerLink="/users/{{merchant.username}}">
+                View</a>
+            <a  href="/admin/merchant" (click)="approve(merchant)">Approve</a>
         </td>
     </tr>
     </tbody>

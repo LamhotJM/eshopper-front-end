@@ -1,8 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {OrderService} from '../../services/order.service';
-import {Order} from '../../models/Order';
-import {OrderStatus} from '../../enum/OrderStatus';
+import {MerchantService} from '../../services/merchant.service';
+import {Merchant} from '../../models/Merchant';
 import {UserService} from '../../services/user.service';
 import {JwtResponse} from '../../response/JwtResponse';
 import {Subscription} from 'rxjs';
@@ -10,18 +9,17 @@ import {ActivatedRoute} from '@angular/router';
 import {Role} from '../../enum/Role';
 
 @Component({
-    selector: 'app-order',
-    templateUrl: './order.component.html',
-    styleUrls: ['./order.component.css']
+    selector: 'app-merchant',
+    templateUrl: './merchant.component.html',
+    styleUrls: ['./merchant.component.css']
 })
 export class MerchantComponent implements OnInit, OnDestroy {
 
     page: any;
-    OrderStatus = OrderStatus;
     currentUser: JwtResponse;
     Role = Role;
     constructor(private httpClient: HttpClient,
-                private orderService: OrderService,
+                private merchantService: MerchantService,
                 private userService: UserService,
                 private route: ActivatedRoute
     ) {
@@ -40,34 +38,28 @@ export class MerchantComponent implements OnInit, OnDestroy {
     update() {
         let nextPage = 0;
         let size = 10;
+        const status = 0;
         if (this.route.snapshot.queryParamMap.get('page')) {
             nextPage = +this.route.snapshot.queryParamMap.get('page');
             size = +this.route.snapshot.queryParamMap.get('size');
         }
-        this.orderService.getPage(nextPage, size).subscribe(page => this.page = page, _ => {
-            console.log('Get Orde Failed');
+        this.merchantService.getPage(nextPage, size, status).subscribe(page => this.page = page, _ => {
+            console.log('Get merchant Failed');
         });
     }
 
 
-    cancel(order: Order) {
-        this.orderService.cancel(order.orderID).subscribe(res => {
+    approve(merchant:  Merchant) {
+        this.merchantService.approve(merchant.id).subscribe(res => {
             if (res) {
-                order.orderStatus = res.orderStatus;
+                merchant.approved = res.approved;
             }
         });
-    }
 
-    finish(order: Order) {
-        this.orderService.finish(order.orderID).subscribe(res => {
-            if (res) {
-                order.orderStatus = res.orderStatus;
-            }
-        });
     }
 
     ngOnDestroy(): void {
-        this.querySub.unsubscribe();
+     //   this.querySub.unsubscribe();
     }
 
 }

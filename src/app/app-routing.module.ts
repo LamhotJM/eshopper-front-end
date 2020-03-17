@@ -8,6 +8,7 @@ import {DetailComponent} from './pages/product-detail/detail.component';
 import {CartComponent} from './pages/cart/cart.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {OrderComponent} from './pages/order/order.component';
+import {MerchantComponent} from './pages/merchant/merchant.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
     {path: 'success', component: SignupComponent},
     {path: 'order/:id', component: OrderDetailComponent, canActivate: [AuthGuard]},
     {path: 'order', component: OrderComponent, canActivate: [AuthGuard]},
+    {path: 'admin/merchant', component: MerchantComponent, canActivate: [AuthGuard]},
     {path: 'seller', redirectTo: 'seller/product', pathMatch: 'full'},
     {
         path: 'seller/product',
