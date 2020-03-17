@@ -1,4 +1,5 @@
 import {Role} from '../enum/Role';
+import {Address} from './Address';
 
 export class User {
 
@@ -14,9 +15,8 @@ export class User {
     address: string;
 
     enabled: boolean;
-
     role: string;
-    shippingAddress: string;
+    shippingAddress: Address;
     officePhoneNumber1: string;
     officePhoneNumber2: string;
 
