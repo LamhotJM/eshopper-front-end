@@ -1,34 +1,18 @@
-<h1 align="center" class="display-4 mb-5">Edit Product</h1>
+<h1 align="center" class="display-4 mb-5">Add Product</h1>
 <div style="width:40%; margin: 25px auto">
     <form #form="ngForm" (ngSubmit)="onSubmit()">
         <!--Id-->
-        <div class="form-group">
-            <label for="productId">Code</label>
-            <input [readOnly]="isEdit" [disabled]="isEdit" [(ngModel)]="product.id" type="text"
-                   class="form-control form-control-lg" #productIdInput
-                   id="productId" name="productId" required #productId="ngModel">
-            <div *ngIf="productIdInput.invalid && (productIdInput.dirty ||productIdInput.touched)">
-                <div *ngIf="productIdInput.errors.required">
-                    Name is required.
-                </div>
-            </div>
-        </div>
-        <!--Photo-->
-        <div class="form-group">
-            <label>Photo Link</label>
-            <input [(ngModel)]="product.productIcon" type="text" class="form-control form-control-lg" id="productIcon"
-                   name="productIcon" placeholder="Photo">
-        </div>
+
 
         <!--Name-->
         <div class="form-group">
             <label>Name</label>
-            <input [(ngModel)]="product.title" type="text" class="form-control form-control-lg" id="productName"
-                   #productName="ngModel"
-                   name="productName" placeholder="Name" required>
+            <input [(ngModel)]="product.title" type="text" class="form-control form-control-lg" id="title"
+                   #title="ngModel"
+                   name="title" placeholder="Name" required>
         </div>
-        <div *ngIf="productName.invalid && (productName.dirty ||productName.touched)">
-            <div *ngIf="productName.errors.required">
+        <div *ngIf="title.invalid && (title.dirty ||title.touched)">
+            <div *ngIf="title.errors.required">
                 Name is required.
             </div>
         </div>
@@ -37,61 +21,72 @@
         <div class="form-group">
             <label for="categoryType">Category</label>
             <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
-                    [(ngModel)]="product.categegory"
+                    [(ngModel)]="product.category"
                     required>
-                <option [ngValue]=0>Books</option>
-                <option [ngValue]=1>Food</option>
-                <option [ngValue]=2>Clothes</option>
-                <option [ngValue]=3>Drink</option>
+                <option [ngValue]=1>Electronics</option>
+                <option [ngValue]=2>Computer</option>
+                <option [ngValue]=3>Fashion</option>
+                <option [ngValue]=4>Building Tools</option>
+                <option [ngValue]=5>Building Tools</option>
+                <option [ngValue]=6>Jewellery</option>s
             </select>
         </div>
 
-        <!--Description-->
-        <div class="form-group">
-            <label>Description</label>
-            <textarea class="form-control form-control-lg text-left"
-                      id="productDescription" name="productDescription"
-                      placeholder="Description" [(ngModel)]="product.description"></textarea>
-        </div>
         <!--Price-->
         <div class="form-group">
-            <label for="productPrice">Price</label>
+            <label for="price">Price</label>
             <input class="form-control form-control-lg"
                    type="number"
-                   id="productPrice"
-                   name="productPrice"
-                   #productPrice="ngModel"
+                   id="price"
+                   name="price"
+                   #price="ngModel"
                    [ngModel]="product.price" (ngModelChange)="product.price=$event"
                    required>
-            <div *ngIf="productPrice.invalid && (productPrice.dirty ||productPrice.touched)">
-                <div *ngIf="productPrice.errors.required">
+            <div *ngIf="price.invalid && (price.dirty ||price.touched)">
+                <div *ngIf="price.errors.required">
                     Price is required.
                 </div>
             </div>
         </div>
         <!--Stock-->
         <div class="form-group">
-            <label for="productStock">Stock</label>
+            <label for="qtyAvail">Stock</label>
             <input class="form-control form-control-lg"
                    type="number"
-                   id="productStock"
-                   name="productStock"
-                   min="0" #productStock="ngModel"
+                   id="qtyAvail"
+                   name="qtyAvail"
+                   min="0" #qtyAvail="ngModel"
                    [(ngModel)]="product.qtyAvail"
                    required>
-            <div *ngIf="productStock.invalid && (productStock.dirty ||productStock.touched)">
-                <div *ngIf="productStock.errors.required">
+            <div *ngIf="qtyAvail.invalid && (qtyAvail.dirty ||qtyAvail.touched)">
+                <div *ngIf="qtyAvail.errors.required">
                     Stock is required.
                 </div>
             </div>
         </div>
+
+        <!--Description-->
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control form-control-lg text-left"
+                      id="description" name="description"
+                      placeholder="Description" [(ngModel)]="product.description"></textarea>
+        </div>
+
+        <!--summary-->
+        <div class="form-group">
+            <label>Summary</label>
+            <textarea class="form-control form-control-lg text-left"
+                      id="summary" name="summary"
+                      placeholder="Description" [(ngModel)]="product.summary"></textarea>
+        </div>
         <!--Status-->
         <div class="form-group">
-            <label for="productStatus">Status</label>
-            <select class="custom-select custom-select-lg " id="productStatus" name="productStatus" required
-                    [(ngModel)]="product.productStatus">
-                <option [ngValue]=0>Available</option>
-                <option [ngValue]=1>Unavailable</option>
+            <label for="isAvailable">Status</label>
+            <select class="custom-select custom-select-lg " id="isAvailable" name="isAvailable" required
+                    [(ngModel)]="product.isAvailable">
+                <option [ngValue]=1>Available</option>
+                <option [ngValue]=0>Unavailable</option>
             </select>
         </div>
         <div class="form-group">

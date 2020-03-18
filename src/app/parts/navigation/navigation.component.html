@@ -13,20 +13,20 @@
             </a>
 
             <a class="nav-item nav-link "
-               routerLink="/category/0">
-                Books
+               routerLink="/category/1">
+                Electronics
             </a>
             <a class="nav-item nav-link"
-               routerLink="/category/1">
-                Food
+               routerLink="/category/2">
+                Computer
             </a>
             <a class="nav-item nav-link "
-               routerLink="/category/2">
-                Clothes
+               routerLink="/category/3">
+                Fashion
             </a>
             <a class="nav-item nav-link"
-               routerLink="/category/3">
-                Drink
+               routerLink="/category/4">
+                Building Tools
             </a>
         </div>
 
@@ -46,7 +46,7 @@
                 </a>
 
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
-                        class="nav-item nav-link " routerLink="merchant/new-product">
+                        class="nav-item nav-link " routerLink="product/new">
                     Add Product
                 </a>
 
