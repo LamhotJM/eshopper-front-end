@@ -6,11 +6,12 @@ export class ProductInfo {
     price: number;
     qtyAvail: number;
     description: string;
+    summary: string;
     productIcon: string;
-    productStatus: number; // 0: onsale 1: offsale
     category: number;
     createTime: string;
     updateTime: string;
+    isAvailable: number;
 
 
     constructor(productInOrder?: ProductInOrder) {
@@ -22,7 +23,7 @@ export class ProductInfo {
             this.description = productInOrder.description;
             this.productIcon = productInOrder.productIcon;
             this.category = productInOrder.category;
-            this.productStatus = 0;
+            this.isAvailable = 0;
         } else {
             this.id = '';
             this.title = '';
@@ -31,7 +32,7 @@ export class ProductInfo {
             this.description = '';
             this.productIcon = '';
             this.category = 0;
-            this.productStatus = 0;
+            this.isAvailable = 0;
         }
     }
 }

@@ -12,7 +12,7 @@ import {MerchantComponent} from './pages/merchant/merchant.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
-import {NewProductComponent} from './pages/merchant/admin-product/new-product/new-product.component';
+import {UploadProductImageComponent} from './pages/merchant/admin-product/upload-product-image/upload-product-image.component';
 
 import {Role} from './enum/Role';
 import {ProductsListComponent} from './pages/product-list/products-list.component';
@@ -23,7 +23,8 @@ const routes: Routes = [
     {path: 'products/:id', component: DetailComponent},
     {path: 'category/:id', component: CardComponent},
     {path: 'product', component: CardComponent},
-    {path: 'merchant/new-product', component: NewProductComponent},
+    {path: 'product/new', component: ProductEditComponent},
+    {path: 'product/image', component: UploadProductImageComponent},
     {path: 'products', component: ProductsListComponent},
     {path: 'category', component: CardComponent},
     {path: 'login', component: LoginComponent},
