@@ -44,6 +44,12 @@
                 <a class="nav-item nav-link " routerLink="/profile">
                     {{name}}
                 </a>
+
+                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
+                        class="nav-item nav-link " routerLink="merchant/new-product">
+                    Add Product
+                </a>
+
                 <a *ngIf="!currentUser || currentUser.role == Role.Admin"
                         class="nav-item nav-link " routerLink="admin/merchant">
                     Manage Merchant
