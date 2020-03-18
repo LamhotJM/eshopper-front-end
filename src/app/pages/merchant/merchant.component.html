@@ -1,4 +1,4 @@
-<h2 class="display-4 mb-5">List Not Approved Merchants</h2>
+<h5 class="display-4 mb-5">List Not Approved Merchants</h5>
 
 <table class="table table-striped text-center">
     <thead>
@@ -6,34 +6,34 @@
         <th scope="col">ID #</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Shipping Address</th>
+        <!-- <th scope="col">Shipping Address</th> -->
         <th scope="col">Business Name</th>
         <th scope="col">PhoneNumber1</th>
-        <th scope="col">PhoneNumber2</th>
-        <th scope="col">Identity Proof</th>
+        <!-- <th scope="col">PhoneNumber2</th> -->
+        <!-- <th scope="col">Identity Proof</th> -->
         <th scope="col">approved</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr *ngFor="let merchant of page?.content">
+    <tr *ngFor="let merchant of page?.content; let i = index;">
         <th class="align-middle" scope="row">
-            {{merchant.id}}
+            {{i+1}}
         </th>
         <td class="align-middle">{{merchant.firstName}}</td>
         <td class="align-middle">{{merchant.username}}</td>
-        <td class="align-middle">
+        <!-- <td class="align-middle">
             {{merchant.officeAddress?.streetAddress || "--"}},
             {{merchant.officeAddres?.city || "--"}},
             {{merchant.officeAddress?.state || "--"}},
             {{merchant.officeAddress?.zipCode || "--"}}
 
-        </td>
+        </td> -->
         <td class="align-middle">{{merchant?.bizName}}</td>
         <td class="align-middle">{{merchant?.officePhoneNumber1}}</td>
-        <td class="align-middle">{{merchant?.officePhoneNumber2}}</td>
-        <td class="align-middle">{{merchant?.identityProof}}</td>
+        <!-- <td class="align-middle">{{merchant?.officePhoneNumber2}}</td>
+        <td class="align-middle">{{merchant?.identityProof}}</td> -->
         <td class="align-middle">{{merchant?.approved}}</td>
         <td class="align-middle">
             <a *ngIf="(currentUser.role == Role.Admin)"
