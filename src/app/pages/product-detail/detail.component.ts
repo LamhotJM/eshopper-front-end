@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LocaleStorageService } from '../../services/locale-storage.service';
 import { ProductService } from '../../services/product.service';
 declare let swal: any;
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -41,7 +42,6 @@ export class DetailComponent implements OnInit {
       data =>  {
         this.cart = data;
         this.localeStorage.saveCartId(data['cartId']);
-        swal('Done!', 'Add to card success', 'success');
         this.router.navigateByUrl('products');
       }
     );

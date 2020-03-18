@@ -24,9 +24,11 @@ import {UploadProductImageComponent} from './pages/merchant/admin-product/upload
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
 import {AdminProductComponent} from './pages/merchant/admin-product/admin-product.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
+
     declarations: [
         AppComponent,
         NavigationComponent,
@@ -48,6 +50,7 @@ import {AdminProductComponent} from './pages/merchant/admin-product/admin-produc
 
     ],
     imports: [
+        SweetAlert2Module.forRoot(),
         BrowserModule,
         AppRoutingModule,
         FormsModule,
