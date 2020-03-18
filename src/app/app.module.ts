@@ -20,8 +20,12 @@ import {OrderComponent} from './pages/order/order.component';
 import {MerchantComponent} from './pages/merchant/merchant.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
 import {ProductsListComponent} from './pages/product-list/products-list.component';
+import {NewProductComponent} from './pages/merchant/admin-product/new-product/new-product.component';
+import {UploadProductImageComponent} from './pages/merchant/admin-product/upload-product-image/upload-product-image.component';
+
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
+import {AdminProductComponent} from './pages/merchant/admin-product/admin-product.component';
 
 
 @NgModule({
@@ -39,8 +43,11 @@ import {ProductEditComponent} from './pages/product-edit/product-edit.component'
         MerchantComponent,
         OrderDetailComponent,
         ProductsListComponent,
+        NewProductComponent,
         UserDetailComponent,
         ProductEditComponent,
+        UploadProductImageComponent,
+        AdminProductComponent,
 
     ],
     imports: [
