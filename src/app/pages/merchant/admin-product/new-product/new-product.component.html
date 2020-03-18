@@ -40,13 +40,19 @@
           <input type="text" class="form-control" required [(ngModel)]="product.price" name="price">
         </div>
       </div>
-    <div class="form-row">
-      <div class="col form-group">
-        <label>Category</label>
-        <select class="form-control" required [(ngModel)]="product.categoryId" id="categoryId" name="categoryId">
-            <option *ngFor="let cat of productCategories" [value]="cat.id">{{cat.name}}</option>
-          </select>
-      </div>
+    <!--Category-->
+    <div class="form-group">
+      <label for="categoryType">Category</label>
+      <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
+              [(ngModel)]="product.categegory"
+              required>
+        <option [ngValue]=1>Electronics</option>
+        <option [ngValue]=2>Computer</option>
+        <option [ngValue]=3>Fashion</option>
+        <option [ngValue]=4>Building Tools</option>
+        <option [ngValue]=5>Building Tools</option>
+        <option [ngValue]=6>Jewellery</option>s
+      </select>
     </div>
     <!-- form-group end.// -->
     <div class="form-group">
