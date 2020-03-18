@@ -91,13 +91,13 @@ export class ProductService {
         const cart_id = this.localStorage.getCartId();
         if ( cart_id != null) {
             return this.http.post(
-                `${apiUrl}/shopping/addToCart`,
-                {productId: product_id, quantity: quantity, cartId: cart_id}
+                `${apiUrl}/orders/add-cart`,
+                {productId: product_id, quantity: quantity, cartId: cart_id, userId: 3}
             );
         } else {
             return this.http.post(
-                `${apiUrl}/shopping/addToCart`,
-                {productId: product_id, quantity: quantity}
+                `${apiUrl}/orders/add-cart`,
+                {productId: product_id, quantity: quantity,  userId: 3}
             );
         }
     }

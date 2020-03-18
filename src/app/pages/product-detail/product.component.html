@@ -1,4 +1,10 @@
+<link rel="stylesheet" href="sweetalert2/dist/sweetalert2.css">
+
+<script type="module">
+    import Swal from 'sweetalert2/src/sweetalert2.js'
+</script>
 <div class="product-container">
+
     <div class="product-img-container">
         <img src="http://placehold.it/700x400" alt="product">
     </div>
@@ -21,7 +27,7 @@
             <b>Quantity</b>: <span><input [(ngModel)]="quantity" type="number" class="form-control" id="quantity" name="quantity" value="" style="width: 100px !important; display: inline;" placeholder="1" required ></span>
         </div>
         <div>
-            <button type="button" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
+            <button type="button" [swal]="['Success!', 'Add to cart successfully', 'warning']" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
         </div>
         <div class="add-to-card-container">
             <!-- <div class="select-container">

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+// @ts-ignore
 import { ProductComponent } from './product.component';
+import 'sweetalert2/src/sweetalert2.scss';
+
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
