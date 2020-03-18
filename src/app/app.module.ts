@@ -20,6 +20,7 @@ import {OrderComponent} from './pages/order/order.component';
 import {MerchantComponent} from './pages/merchant/merchant.component';
 import {OrderDetailComponent} from './pages/order-detail/order-detail.component';
 import {ProductsListComponent} from './pages/product-list/products-list.component';
+import {ProductsMerchantListComponent} from './pages/product-list/products-merchant-list.component';
 import {UploadProductImageComponent} from './pages/merchant/admin-product/upload-product-image/upload-product-image.component';
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
@@ -45,6 +46,7 @@ import {AdminProductComponent} from './pages/merchant/admin-product/admin-produc
         ProductEditComponent,
         UploadProductImageComponent,
         AdminProductComponent,
+        ProductsMerchantListComponent,
 
     ],
     imports: [

@@ -13,7 +13,7 @@ import {OrderDetailComponent} from './pages/order-detail/order-detail.component'
 import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
 import {UploadProductImageComponent} from './pages/merchant/admin-product/upload-product-image/upload-product-image.component';
-
+import {ProductsMerchantListComponent} from './pages/product-list/products-merchant-list.component';
 import {Role} from './enum/Role';
 import {ProductsListComponent} from './pages/product-list/products-list.component';
 
@@ -26,6 +26,7 @@ const routes: Routes = [
     {path: 'product/new', component: ProductEditComponent},
     {path: 'product/image', component: UploadProductImageComponent},
     {path: 'products', component: ProductsListComponent},
+    //{path: 'myproducts', component: ProductsMerchantListComponent},
     {path: 'category', component: CardComponent},
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LoginComponent},
@@ -37,6 +38,12 @@ const routes: Routes = [
     {path: 'order', component: OrderComponent, canActivate: [AuthGuard]},
     {path: 'admin/merchant', component: MerchantComponent, canActivate: [AuthGuard]},
     {path: 'seller', redirectTo: 'seller/product', pathMatch: 'full'},
+    {
+        path: 'myproducts',
+        component: ProductsMerchantListComponent,
+        canActivate: [AuthGuard],
+        data: {roles: [Role.Admin, Role.Merchant]}
+    },
     {
         path: 'seller/product',
         component: ProductsListComponent,
@@ -66,6 +73,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [],
     imports: [
+     
         RouterModule.forRoot(routes)// {onSameUrlNavigation: 'reload'}
     ],
     exports: [RouterModule]

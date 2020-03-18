@@ -83,6 +83,10 @@ export class ProductService {
         return this.http.get(`${apiUrl}/products/list/`);
     }
 
+    getProductsByMerchant(merchantAccount : string) {
+        return this.http.get(`${apiUrl}/products/list/${merchantAccount}`);
+    }
+
     getProduct(id: number) {
         return this.http.get(`${apiUrl}/products/${id}`);
     }
