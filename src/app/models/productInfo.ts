@@ -12,6 +12,8 @@ export class ProductInfo {
     createTime: string;
     updateTime: string;
     isAvailable: number;
+    images: [string];
+    productNumber : string;
 
 
     constructor(productInOrder?: ProductInOrder) {
@@ -24,6 +26,9 @@ export class ProductInfo {
             this.productIcon = productInOrder.productIcon;
             this.category = productInOrder.category;
             this.isAvailable = 0;
+            //this.productStatus = 0;
+            this.images = productInOrder.productImages;
+            this.productNumber = productInOrder.productNumber;
         } else {
             this.id = '';
             this.title = '';
@@ -33,6 +38,8 @@ export class ProductInfo {
             this.productIcon = '';
             this.category = 0;
             this.isAvailable = 0;
+            //this.productStatus = 0;
+            this.productNumber = '';
         }
     }
 }

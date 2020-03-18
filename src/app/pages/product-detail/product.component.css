@@ -18,7 +18,7 @@
 }
 
 .product-desc-container h3{
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 .product-desc-container div {
@@ -37,8 +37,8 @@
 }
 
 .add-to-card-container {
-    clear: left;
-    margin-top: 100px !important;
+    clear: both;
+    margin-top: 50px !important;
     text-align: left;
 }
 

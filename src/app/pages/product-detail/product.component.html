@@ -4,9 +4,12 @@
     </div>
 
     <div class="product-desc-container" *ngIf="dataLoaded | async">
-        <h3>Product Details</h3>
+        <h3>{{product.title}}</h3>
         <div>
-            <b> Product ID:</b> <span>{{product.id}}</span>
+            <span>{{product.summary}}</span>
+        </div>
+        <div>
+            <b> Product Number:</b> <span>{{product.productNumber}}</span>
         </div>
         <div>
             <b>Product Name</b>: <span>{{product.title}}</span>
@@ -14,8 +17,14 @@
         <div>
             <b>Product Price</b>: <span>$ {{product.price}}</span>
         </div>
+        <div>
+            <b>Quantity</b>: <span><input [(ngModel)]="quantity" type="number" class="form-control" id="quantity" name="quantity" value="" style="width: 100px !important; display: inline;" placeholder="1" required ></span>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
+        </div>
         <div class="add-to-card-container">
-            <div class="select-container">
+            <!-- <div class="select-container">
                 <b>Quantity</b>
                 <select class="custom-select" [(ngModel)]="quantity">
                     <option value="1" selected>1</option>
@@ -32,11 +41,13 @@
             </div>
             <div>
                 <button type="button" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
+            </div> -->
+            <h5>Description</h5>
+            <div>
+                {{product.description}}
             </div>
         </div>
-        <div>
-            <b>Description: </b><span> {{product.description}}</span>
-        </div>
+        
 
     </div>
 </div>
