@@ -4,6 +4,7 @@ export const products: ProductInfo[] = [
   {
     id: 'B0001',
     title: 'Core Java',
+    productNumber: '',
     price: 30.00,
     qtyAvail: 96,
     description: 'Books for learning Java',
@@ -11,11 +12,14 @@ export const products: ProductInfo[] = [
     productStatus: 0,
     category: 0,
     createTime: '2018-03-10T11:44:25.000+0000',
-    updateTime: '2018-03-10T11:44:25.000+0000'
+    updateTime: '2018-03-10T11:44:25.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   },
   {
     id: 'B0002',
     title: 'Spring In Action',
+    productNumber: '',
     price: 20.00,
     qtyAvail: 195,
     description: 'Learn Spring',
@@ -23,11 +27,14 @@ export const products: ProductInfo[] = [
     productStatus: 0,
     category: 0,
     createTime: '2018-03-10T15:35:43.000+0000',
-    updateTime: '2018-03-10T15:35:43.000+0000'
+    updateTime: '2018-03-10T15:35:43.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   },
   {
     id: 'B0001',
     title: 'Core Java',
+    productNumber: '',
     price: 30.00,
     qtyAvail: 96,
     description: 'Books for learning Java',
@@ -35,11 +42,14 @@ export const products: ProductInfo[] = [
     productStatus: 1,
     category: 0,
     createTime: '2018-03-10T11:44:25.000+0000',
-    updateTime: '2018-03-10T11:44:25.000+0000'
+    updateTime: '2018-03-10T11:44:25.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   },
   {
     id: 'B0002',
     title: 'Spring In Action',
+    productNumber: '',
     price: 20.00,
     qtyAvail: 195,
     description: 'Learn Spring',
@@ -47,10 +57,13 @@ export const products: ProductInfo[] = [
     productStatus: 0,
     category: 0,
     createTime: '2018-03-10T15:35:43.000+0000',
-    updateTime: '2018-03-10T15:35:43.000+0000'
+    updateTime: '2018-03-10T15:35:43.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   }, {
     id: 'B0001',
     title: 'Core Java',
+    productNumber: '',
     price: 30.00,
     qtyAvail: 96,
     description: 'Books for learning Java',
@@ -58,11 +71,14 @@ export const products: ProductInfo[] = [
     productStatus: 1,
     category: 0,
     createTime: '2018-03-10T11:44:25.000+0000',
-    updateTime: '2018-03-10T11:44:25.000+0000'
+    updateTime: '2018-03-10T11:44:25.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   },
   {
     id: 'B0002',
     title: 'Spring In Action',
+    productNumber: '',
     price: 20.00,
     qtyAvail: 195,
     description: 'Learn Spring',
@@ -70,12 +86,15 @@ export const products: ProductInfo[] = [
     productStatus: 0,
     category: 0,
     createTime: '2018-03-10T15:35:43.000+0000',
-    updateTime: '2018-03-10T15:35:43.000+0000'
+    updateTime: '2018-03-10T15:35:43.000+0000',
+    images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
   }];
 
 export const prod: ProductInfo = {
   id: 'B0002',
   title: 'Spring In Action',
+  productNumber: '',
   price: 20.00,
   qtyAvail: 195,
   description: 'Learn Spring',
@@ -83,6 +102,8 @@ export const prod: ProductInfo = {
   productStatus: 0,
   category: 0,
   createTime: '2018-03-10T15:35:43.000+0000',
-  updateTime: '2018-03-10T15:35:43.000+0000'
+  updateTime: '2018-03-10T15:35:43.000+0000',
+  images: ['https://images-na.ssl-images-amazon.com/images/I/41f6Rd6ZEPL._SX363_BO1,204,203,200_.jpg'],
+    
 };
 
