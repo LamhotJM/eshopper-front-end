@@ -19,6 +19,7 @@ export class User {
     shippingAddress: Address;
     officePhoneNumber1: string;
     officePhoneNumber2: string;
+    bizName: string;
 
     constructor() {
         this.enabled = true;
