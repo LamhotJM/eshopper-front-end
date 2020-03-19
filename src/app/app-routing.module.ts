@@ -19,7 +19,7 @@ import {ProductsListComponent} from './pages/product-list/products-list.componen
 
 
 const routes: Routes = [
-    {path: '', redirectTo: '/product', pathMatch: 'full'},
+    {path: '', redirectTo: '/products', pathMatch: 'full'},
     {path: 'products/:id', component: DetailComponent, canActivate: [AuthGuard]},
     {path: 'category/:id', component: CardComponent},
     {path: 'product', component: CardComponent},

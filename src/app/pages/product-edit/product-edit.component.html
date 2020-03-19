@@ -1,4 +1,4 @@
-<h1 align="center" class="display-4 mb-5">Add Product</h1>
+<h5 align="center" class="display-4 mb-5">Add Product</h5>
 <div style="width:40%; margin: 25px auto">
     <form #form="ngForm" (ngSubmit)="onSubmit()">
         <!--Id-->
@@ -16,6 +16,20 @@
                 Name is required.
             </div>
         </div>
+
+        <!--Name-->
+        <div class="form-group">
+            <label>Product Number</label>
+            <input [(ngModel)]="product.number" type="text" class="form-control form-control-lg" id="title"
+                   #productNumber="ngModel"
+                   name="productNumber" placeholder="e.g. HP450" required>
+        </div>
+        <div *ngIf="productNumber.invalid && (productNumber.dirty ||productNumber.touched)">
+            <div *ngIf="productNumber.errors.required">
+                Product Number is required.
+            </div>
+        </div>
+
 
         <!--Category-->
         <div class="form-group">
