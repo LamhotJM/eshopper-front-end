@@ -46,7 +46,7 @@ const routes: Routes = [
     },
     {
         path: 'seller/product',
-        component: ProductsListComponent,
+        component: ProductsMerchantListComponent,
         canActivate: [AuthGuard],
         data: {roles: [Role.Admin, Role.Merchant]}
     },

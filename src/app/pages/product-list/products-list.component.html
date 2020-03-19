@@ -6,7 +6,9 @@
           <h4 class="card-title">
             <a href="/products/{{product.id}}">{{product.title}}</a>
           </h4>
+          <p class="card-text">Sold By {{product.merchant.bizName}}</p>
           <p class="card-text">{{product.description | slice:0:70}} ...</p>
+          
         </div>
         <div class="card-footer">
               <div class="product-price">
