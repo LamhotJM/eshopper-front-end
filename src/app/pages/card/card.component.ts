@@ -54,8 +54,8 @@ export class CardComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.route.params = null;
-    this.pathSubscription.unsubscribe();
+    //this.route.params = null;
+    //this.pathSubscription.unsubscribe();
   }
 
 }

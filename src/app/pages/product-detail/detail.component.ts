@@ -35,7 +35,7 @@ export class DetailComponent implements OnInit ,  OnDestroy {
   ngOnInit() {
     this.currentUser = this.userService.currentUserValue;
     this.quantity = '1';
-    this.route.params.subscribe(params => {
+    this.querySub = this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
     this.service.getProduct(this.id).subscribe(
