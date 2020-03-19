@@ -14,8 +14,9 @@
               <div class="product-price">
                   ${{product.price}}
               </div>
-              <div class="add-to-cart-btn">
-                  <a routerLink="/products/{{product.id}}" class="btn btn-primary">Add to card</a>
+              <div class="text-info">
+                  <a routerLink="/products/{{product.id}}" *ngIf="product.isAvailable == true; else offBlock"
+                     class="btn btn-primary btn-lg">Shop Now</a>
               </div>
         </div>
       </div>
