@@ -50,6 +50,10 @@
                     Add Product
                 </a>
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
+                        class="nav-item nav-link " routerLink="product/image">
+                    Upload Image
+                </a>
+                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
                         class="nav-item nav-link " routerLink="/myproducts">
                     My Products
                 </a>

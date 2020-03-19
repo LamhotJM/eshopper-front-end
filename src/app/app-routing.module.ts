@@ -24,7 +24,7 @@ const routes: Routes = [
     {path: 'category/:id', component: CardComponent},
     {path: 'product', component: CardComponent},
     {path: 'product/new', component: ProductEditComponent},
-    {path: 'product/image', component: UploadProductImageComponent},
+    {path: 'image/:id', component: UploadProductImageComponent, canActivate: [AuthGuard]},
     {path: 'products', component: ProductsListComponent},
     //{path: 'myproducts', component: ProductsMerchantListComponent},
     {path: 'category', component: CardComponent},

@@ -50,7 +50,8 @@ export class AdminService {
 
   postFile(fileToUpload: File, productId: Number): Observable<Object> {
    // let endpoint = 'http://localhost:9091/uploadFile/' + productId;
-   const endpoint = `${apiUrl}/customer/get`;
+    const nam = fileToUpload.name;
+   const endpoint = `${apiUrl}/productimages/${{File}}`;
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
     return this.http.post(endpoint, formData); // , { headers: yourHeadersConfig });

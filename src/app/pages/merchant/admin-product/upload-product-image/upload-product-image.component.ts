@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from '../../../../services/admin.service';
+import {Subscription} from 'rxjs';
+import {UserService} from '../../../../services/user.service';
+import {JwtResponse} from '../../../../response/JwtResponse';
 
 @Component({
   selector: 'app-upload-product-image',
   templateUrl: './upload-product-image.component.html',
   styleUrls: ['./upload-product-image.component.css']
 })
-export class UploadProductImageComponent implements OnInit {
+export class UploadProductImageComponent implements OnInit, OnDestroy {
   fileToUpload: File = null;
   productId: Number;
   sub;
@@ -17,12 +20,15 @@ export class UploadProductImageComponent implements OnInit {
   success = false;
   failed = false;
   message = '';
+  querySub: Subscription;
+  currentUser: JwtResponse;
 
 
 
-  constructor(private adminService: AdminService, public route: ActivatedRoute) { }
+  constructor(private adminService: AdminService, public route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
+    this.currentUser = this.userService.currentUserValue;
     this.sub = this.route.url.subscribe(params => {
       // tslint:disable-next-line:triple-equals
       if (params[1].path == 'image-upload') {
@@ -56,5 +62,9 @@ export class UploadProductImageComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.querySub.unsubscribe();
   }
 }
