@@ -27,10 +27,10 @@
         <td class="align-middle">{{order.buyer.username}}</td>
         <td class="align-middle">
 
-            {{order.buyer.shippingAddress.streetAddress}},
-            {{order.buyer.shippingAddress.city}},
-            {{order.buyer.shippingAddress.state}},
-            {{order.buyer.shippingAddress.zipCode}}
+            {{order.buyer.shippingAddress?.streetAddress}},
+            {{order.buyer.shippingAddress?.city}},
+            {{order.buyer.shippingAddress?.state}},
+            {{order.buyer.shippingAddress?.zipCode}}
 
         </td>
         <td class="align-middle">{{order.orderAmount | currency}}</td>

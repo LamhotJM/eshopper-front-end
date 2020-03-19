@@ -20,14 +20,13 @@ export class OrderComponent implements OnInit, OnDestroy {
     OrderStatus = OrderStatus;
     currentUser: JwtResponse;
     Role = Role;
+    querySub: Subscription;
+
     constructor(private httpClient: HttpClient,
                 private orderService: OrderService,
                 private userService: UserService,
                 private route: ActivatedRoute
-    ) {
-    }
-
-    querySub: Subscription;
+    ) {}
 
     ngOnInit() {
         this.currentUser = this.userService.currentUserValue;
