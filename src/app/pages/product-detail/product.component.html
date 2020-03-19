@@ -6,12 +6,12 @@
 <div class="product-container">
 
     <div class="product-img-container">
-        <img src="http://placehold.it/700x400" alt="product">
+        <img src="{{ product.images[0].imageUrl}}" alt="product">
     </div>
 
     <div class="product-desc-container" *ngIf="dataLoaded | async">
         <h3>{{product.title}}</h3>
-        <h2> Sold by : {{product.merchant.bizName}}</h2>
+        <!-- <h2> Sold by : {{product.merchant.bizName}}</h2> -->
         <div>
             <span>{{product.summary}}</span>
         </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div>
-            <b>Stock</b>: <span>$  {{product.stock}} </span>
+            <b>Stock</b>: <span> {{product.qtyAvail}} </span>
         </div>
         <div>
             <strong>Sold By: <span>{{product.merchant.bizName}} </span></strong>
