@@ -32,9 +32,7 @@ export class OrderService {
         );
     }
 
-    finish(id): Observable<Order> {
-        return this.http.patch<Order>(`${this.orderDetailUrl}/finish/${id}`, null).pipe(
-            catchError(_ => of(null))
-        );
+    checkout(id): Observable<Order> {
+        return this.http.put<Order>(`${this.orderDetailUrl}/checkout`, {'orderId': id});
     }
 }

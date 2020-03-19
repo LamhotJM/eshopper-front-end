@@ -7,12 +7,9 @@
         <th scope="col">Customer Name</th>
         <th scope="col">Customer Email</th>
         <th scope="col">Shipping Address</th>
-        <th scope="col">Qty</th>
-        <th scope="col">Order Data</th>
+        <th scope="col">Date</th>
         <th scope="col">Paid</th>
-        <th scope="col">Status</th>
         <th scope="col">Tax</th>
-        <th scope="col">Discount</th>
         <th scope="col">Total Price </th>
         <th scope="col">Action</th>
     </tr>
@@ -26,31 +23,25 @@
         <td class="align-middle">{{order.buyer.firstName}}</td>
         <td class="align-middle">{{order.buyer.username}}</td>
         <td class="align-middle">
-
             {{order.buyer.shippingAddress?.streetAddress}},
             {{order.buyer.shippingAddress?.city}},
             {{order.buyer.shippingAddress?.state}},
             {{order.buyer.shippingAddress?.zipCode}}
-
         </td>
-        <td class="align-middle">{{order.orderAmount | currency}}</td>
         <td class="align-middle">{{order.date | date}}</td>
         <td class="align-middle">{{order.paid}}</td>
-        <td class="align-middle">{{OrderStatus[order.paid]}}</td>
         <td class="align-middle">{{order.tax | currency}}
-        <td class="align-middle">{{order.totalDiscount | currency}}</td>
-        <td class="align-middle">{{order.totalPrice | currency}}</td>
+        <td class="align-middle">{{order.price | currency}}</td>
         <td class="align-middle">
-            <a *ngIf="!(currentUser.role == Role.Buyer && currentUser.name == order.buyerEmail)"
+            <a
                style="display:
-            block" href="" routerLink="/order/{{order.orderID}}">
+            block" href="" routerLink="/order/{{order.id}}">
                 Show</a>
-            <a *ngIf="order.orderStatus == 0" style="display: block" (click)="cancel(order)" routerLink="./">Cancel</a>
-            <a *ngIf="currentUser.role != Role.Buyer && order.orderStatus == 0"
+            <a *ngIf="order.paid ==false"
                style="display: block"
-               (click)="finish(order)"
+               (click)="checkout(order)"
                routerLink="./">
-                Finish</a>
+                Checkout</a>
         </td>
     </tr>
     </tbody>
