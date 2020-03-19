@@ -38,7 +38,7 @@ export class MerchantComponent implements OnInit, OnDestroy {
     update() {
         let nextPage = 0;
         let size = 10;
-        const status = 1;
+        const status = 0;
         if (this.route.snapshot.queryParamMap.get('page')) {
             nextPage = +this.route.snapshot.queryParamMap.get('page');
             size = +this.route.snapshot.queryParamMap.get('size');

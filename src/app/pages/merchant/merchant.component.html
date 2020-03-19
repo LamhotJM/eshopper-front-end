@@ -8,7 +8,7 @@
         <th scope="col">Email</th>
         <!-- <th scope="col">Shipping Address</th> -->
         <th scope="col">Business Name</th>
-        <th scope="col">PhoneNumber1</th>
+        <th scope="col">PhoneNumber 1</th>
         <!-- <th scope="col">PhoneNumber2</th> -->
         <!-- <th scope="col">Identity Proof</th> -->
         <th scope="col">approved</th>
@@ -39,7 +39,7 @@
             <a *ngIf="(currentUser.role == Role.Admin)"
                style="display:
             block" href="" routerLink="/users/{{merchant.username}}">
-                View</a>
+                View</a> &nbsp; &nbsp;
             <a  href="/admin/merchant" (click)="approve(merchant)">Approve</a>
         </td>
     </tr>
