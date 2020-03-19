@@ -17,6 +17,7 @@
               <div class="text-info">
                   <a routerLink="/products/{{product.id}}" *ngIf="product.isAvailable == true; else offBlock"
                      class="btn btn-primary btn-lg">Shop Now</a>
+                  <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
               </div>
         </div>
       </div>
