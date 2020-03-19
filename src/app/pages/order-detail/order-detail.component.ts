@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {OrderService} from "../../services/order.service";
-import {Order} from "../../models/Order";
-import {ActivatedRoute} from "@angular/router";
+import {Observable} from 'rxjs';
+import {OrderService} from '../../services/order.service';
+import {Order} from '../../models/Order';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-order-detail',

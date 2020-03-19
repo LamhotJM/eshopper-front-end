@@ -87,7 +87,7 @@ export class ProductService {
         return this.http.get(`${apiUrl}/products/${id}`);
     }
 
-    addProductToCart(product_id: string, quantity: string) {
+    addProductToCart(product_id: string, quantity: string): Observable<any> {
         const cart_id = this.localStorage.getCartId();
         if ( cart_id != null) {
             return this.http.post(
