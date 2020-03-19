@@ -31,9 +31,9 @@
         <a href="/products/{{product.id}}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="/products/{{product.id}}">{{product.title}}</a>
+            <a routerLink="/products/{{product.id}}">{{product.title}}</a>
           </h4>
-          <p class="card-text">Sold By {{product.merchant.bizName}}</p>
+            <p class="card-text"><i><strong>Sold By {{product.merchant.bizName}}</strong></i></p>
           <p class="card-text">{{product.description | slice:0:70}} ...</p>
           
         </div>
@@ -41,8 +41,10 @@
               <div class="product-price">
                   ${{product.price}}
               </div>
-              <div class="add-to-cart-btn">
-                  <a href="/products/{{product.id}}" class="btn btn-primary">Add to card</a>
+              <div class="text-info">
+                  <a routerLink="/products/{{product.id}}" *ngIf="product.isAvailable == true; else offBlock"
+                     class="btn btn-primary btn-lg">Shop Now</a>
+                  <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
               </div>
         </div>
       </div>

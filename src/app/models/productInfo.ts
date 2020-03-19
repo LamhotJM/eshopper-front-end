@@ -13,7 +13,7 @@ export class ProductInfo {
     updateTime: string;
     isAvailable: number;
     images: [string];
-    productNumber : string;
+    productNumber: string;
 
 
     constructor(productInOrder?: ProductInOrder) {

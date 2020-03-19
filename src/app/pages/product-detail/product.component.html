@@ -11,6 +11,7 @@
 
     <div class="product-desc-container" *ngIf="dataLoaded | async">
         <h3>{{product.title}}</h3>
+        <h2> Sold by : {{product.merchant.bizName}}</h2>
         <div>
             <span>{{product.summary}}</span>
         </div>
@@ -24,11 +25,19 @@
             <b>Product Price</b>: <span>$ {{product.price}}</span>
         </div>
         <div>
-            <b>Sold By</b>: <span>{{product.merchant.bizName}}</span>
+            <b>Discount</b>: <span> {{product.discount}} %</span>
+        </div>
+
+        <div>
+            <b>Stock</b>: <span>$  {{product.stock}} </span>
+        </div>
+        <div>
+            <strong>Sold By: <span>{{product.merchant.bizName}} </span></strong>
         </div>
         <div>
             <b>Quantity</b>: <span><input [(ngModel)]="quantity" type="number" class="form-control" id="quantity" name="quantity" value="" style="width: 100px !important; display: inline;" placeholder="1" required ></span>
         </div>
+        <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
         <div>
             <button type="button" [swal]="['Success!', 'Add to cart successfully', 'success']" class="btn btn-primary" (click)= addProductToCart(product.id) >Add to card</button>
         </div>

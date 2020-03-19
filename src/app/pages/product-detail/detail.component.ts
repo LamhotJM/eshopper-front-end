@@ -23,6 +23,7 @@ export class DetailComponent implements OnInit ,  OnDestroy {
   cart: object;
   dataLoaded: Promise<boolean>
   currentUser: JwtResponse;
+  querySub: Subscription;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -30,8 +31,6 @@ export class DetailComponent implements OnInit ,  OnDestroy {
     private localeStorage: LocaleStorageService,
               private userService: UserService,
   ) { }
-
-  querySub: Subscription;
 
   ngOnInit() {
     this.currentUser = this.userService.currentUserValue;

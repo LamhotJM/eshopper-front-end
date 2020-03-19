@@ -20,14 +20,13 @@ export class OrderComponent implements OnInit, OnDestroy {
     OrderStatus = OrderStatus;
     currentUser: JwtResponse;
     Role = Role;
+    querySub: Subscription;
+
     constructor(private httpClient: HttpClient,
                 private orderService: OrderService,
                 private userService: UserService,
                 private route: ActivatedRoute
-    ) {
-    }
-
-    querySub: Subscription;
+    ) {}
 
     ngOnInit() {
         this.currentUser = this.userService.currentUserValue;
@@ -58,11 +57,9 @@ export class OrderComponent implements OnInit, OnDestroy {
         });
     }
 
-    finish(order: Order) {
-        this.orderService.finish(order.orderID).subscribe(res => {
-            if (res) {
-                order.orderStatus = res.orderStatus;
-            }
+    checkout(order: Order) {
+        this.orderService.checkout(order.id).subscribe(res => {
+
         });
     }
 
