@@ -8,15 +8,15 @@
             <a href="/products/{{product.id}}">{{product.title}}</a>
           </h4>
           <p class="card-text">{{product.description | slice:0:70}} ...</p>
-          <span>Sold By {{product.merchant.bizName}}</span>
+          <p class="card-text"><i>Sold By {{product.merchant.bizName}}</i></p>
         </div>
         <div class="card-footer">
               <div class="product-price">
                   ${{product.price}}
               </div>
-              <!-- <div class="add-to-cart-btn">
-                  <a href="/products/{{product.id}}" class="btn btn-primary">Add to card</a>
-              </div> -->
+              <div class="add-to-cart-btn">
+                  <a href="seller/product/{{product.id}}/edit" class="btn btn-primary">Edit</a>
+              </div>
         </div>
       </div>
     </div>
