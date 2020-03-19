@@ -6,7 +6,7 @@
 <div class="product-container">
 
     <div class="product-img-container">
-        <img src="http://placehold.it/700x400" alt="product">
+        <img src="{{product.images[0]?.imageUrl}}" alt="product">
     </div>
 
     <div class="product-desc-container" *ngIf="dataLoaded | async">

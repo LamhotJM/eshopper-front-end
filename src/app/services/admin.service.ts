@@ -53,7 +53,7 @@ export class AdminService {
    // let endpoint = 'http://localhost:9091/uploadFile/' + productId;
    const endpoint = `${apiUrl}/products/${productId}/uploadPhoto`;
     const formData: FormData = new FormData();
-    formData.append('file', fileToUpload);
+    formData.append('file', fileToUpload, fileToUpload.name);
    // formData.append('Content-Type', 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW');
 
       // @ts-ignore

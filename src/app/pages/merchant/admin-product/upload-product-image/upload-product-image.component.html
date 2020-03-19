@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12">
-          <h4>Existing product images</h4>
+          <h3>List of images</h3>
           <hr>
           <div class="row">
               <div class="col-lg-4 col-md-6 mb-4" *ngFor="let img of images">
@@ -17,7 +17,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h4>Upload product Image</h4>
+      <h3>Form upload product image</h3>
       <hr>
     </div>
   </div>
@@ -27,9 +27,7 @@
   <div [hidden]="!success" class="alert alert-success" role="alert">
     {{ message }}
   </div>
-  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-
-
+  <form (ngSubmit)="onSubmit()" method="post" enctype="multipart/form-data">
     <div class="form-row">
       <label for="file">Choose File</label>
       <input type="file" id="file" (change)="handleFileInput($event.target.files)">
