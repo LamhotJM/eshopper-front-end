@@ -10,7 +10,6 @@
         <th scope="col">Date</th>
         <th scope="col">Paid</th>
         <th scope="col">Tax</th>
-        <th scope="col">Discount</th>
         <th scope="col">Total Price </th>
         <th scope="col">Action</th>
     </tr>
@@ -32,8 +31,7 @@
         <td class="align-middle">{{order.date | date}}</td>
         <td class="align-middle">{{order.paid}}</td>
         <td class="align-middle">{{order.tax | currency}}
-        <td class="align-middle">{{order.totalDiscount}}</td>
-        <td class="align-middle">{{order.totalPrice | currency}}</td>
+        <td class="align-middle">{{order.price | currency}}</td>
         <td class="align-middle">
             <a
                style="display:
@@ -41,7 +39,7 @@
                 Show</a>
             <a *ngIf="order.paid ==false"
                style="display: block"
-               (click)="finish(order)"
+               (click)="checkout(order)"
                routerLink="./">
                 Checkout</a>
         </td>
