@@ -17,7 +17,7 @@ export class AdminService {
   constructor(private http: HttpClient, private userService: UserService, private router: Router) {
   }
 
-  //const currentUser = this.userService.currentUserValue;
+  // const currentUser = this.userService.currentUserValue;
 
  // currentUser: JwtResponse;
 
@@ -37,7 +37,7 @@ export class AdminService {
     const currentUser = this.userService.currentUserValue;
     let url = '';
     const memo = localStorage.getItem('currentUser');
-    console.log(currentUser)
+    console.log(currentUser);
 
     if (productId == null) {
      url = `${apiUrl}/products/2`;
@@ -48,11 +48,15 @@ export class AdminService {
     return this.http.post(url, product);
   }
 
-  postFile(fileToUpload: File, productId: Number): Observable<Object> {
+  // @ts-ignore
+    postFile(fileToUpload: File, productId: Number): Observable<Object> {
    // let endpoint = 'http://localhost:9091/uploadFile/' + productId;
-   const endpoint = `${apiUrl}/customer/get`;
+   const endpoint = `${apiUrl}/products/${productId}/uploadPhoto`;
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-    return this.http.post(endpoint, formData); // , { headers: yourHeadersConfig });
+   // formData.append('Content-Type', 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW');
+
+      // @ts-ignore
+      return this.http.post(endpoint,  formData);
 }
 }
