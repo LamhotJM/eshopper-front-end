@@ -76,11 +76,15 @@ export class ProductService {
         };
     }
     getProductByCategory(id: number) {
-        return this.http.get(`${apiUrl}/product/category/get/${id}`);
+        return this.http.get(`${apiUrl}/products/categoryById/${id}`);
     }
 
     getProducts() {
         return this.http.get(`${apiUrl}/products/list/`);
+    }
+
+    getProductsByMerchant(merchantAccount : string) {
+        return this.http.get(`${apiUrl}/products/list/${merchantAccount}`);
     }
 
     getProduct(id: number) {
